@@ -29,7 +29,7 @@ center_x = (SCREEN_WIDTH / 2) - (img_bissecao.get_width() / 2)
 first_button_y = (SCREEN_HEIGHT / 6) * 2
 
 # Criando os botões
-btn_bissecao = Button(center_x, first_button_y, img_bissecao)
+btn_bissecao = Button(center_x, first_button_y + img_bissecao.get_height() * 1.1 , img_bissecao)
 
 def menu():
     run = True
