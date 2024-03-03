@@ -31,13 +31,13 @@ def bissecao(screen: pygame.Surface):
 
     ###########################################################################
     # Parâmetros do problema
-    f = lambda x: 10000 * (np.e ** (-0.48 * x)) - 100
-    x0 = 8
-    x1 = 12
+    f = lambda x: 1000 * (np.e ** (-0.1 * x)) - 100
+    x0 = 22
+    x1 = 25
     tol = 10e-5
     max_iter = 20
-    min_x_graph=5
-    max_x_graph=20
+    min_x_graph=10
+    max_x_graph=35
     ###########################################################################
 
     conta_graficos = 0
