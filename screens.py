@@ -18,8 +18,8 @@ def newton(screen: pygame.Surface):
     quit_prog = False
 
     # Carregando imagens dos botões
-    img_prox = pygame.image.load("images/proximo_passo.png").convert_alpha()
-    img_voltar = pygame.image.load("images/voltar.png").convert_alpha()
+    img_prox = pygame.image.load("images/proximo_passo__.png").convert_alpha()
+    img_voltar = pygame.image.load("images/voltar__.png").convert_alpha()
     img_prox = pygame.transform.scale_by(img_prox, (1/4 * screen.get_width()) / img_prox.get_width())
     img_voltar = pygame.transform.scale_by(img_voltar, (1/4 * screen.get_width()) / img_voltar.get_width())
 
@@ -97,7 +97,7 @@ def newton(screen: pygame.Surface):
     show_res = False
     reload_plot = True
     while loop:
-        screen.fill((255, 255, 255))
+        screen.fill((192, 224, 255))
         
         if reload_plot:
             img_plot, img_plot_rect = load_plot(screen, contador)
@@ -116,7 +116,7 @@ def newton(screen: pygame.Surface):
         
         if contador == steps and not show_res:
             font = pygame.font.Font('fonts/timesnewroman.ttf', screen.get_height() // 16)
-            res_text = font.render(f'Raiz: {approx:.1f} | {steps} passos', True, (0, 0, 0), None)
+            res_text = font.render(f'Raiz: {approx:.1f} | {steps} passos', True, (255, 255, 192), None)
             res_text_rect = res_text.get_rect()
             res_text_rect.center = (screen.get_width() / 6, screen.get_height() * 0.902)
             show_res = True
@@ -139,8 +139,8 @@ def bissecao(screen: pygame.Surface):
     quit_prog = False
 
     # Carregando imagens dos botões
-    img_prox = pygame.image.load("images/proximo_passo.png").convert_alpha()
-    img_voltar = pygame.image.load("images/voltar.png").convert_alpha()
+    img_prox = pygame.image.load("images/proximo_passo__.png").convert_alpha()
+    img_voltar = pygame.image.load("images/voltar__.png").convert_alpha()
     img_prox = pygame.transform.scale_by(img_prox, (1/4 * screen.get_width()) / img_prox.get_width())
     img_voltar = pygame.transform.scale_by(img_voltar, (1/4 * screen.get_width()) / img_voltar.get_width())
 
@@ -216,7 +216,7 @@ def bissecao(screen: pygame.Surface):
     show_res = False
     reload_plot = True
     while loop:
-        screen.fill((255, 255, 255))
+        screen.fill((192, 224, 255))
         
         if reload_plot:
             img_plot, img_plot_rect = load_plot(screen, contador)
@@ -235,7 +235,7 @@ def bissecao(screen: pygame.Surface):
         
         if contador == conta_graficos - 1 and not show_res:
             font = pygame.font.Font('fonts/timesnewroman.ttf', screen.get_height() // 16)
-            res_text = font.render(f'Raiz: {middle_x:.1f} | {steps} passos', True, (0, 0, 0), None)
+            res_text = font.render(f'Raiz: {middle_x:.1f} | {steps} passos', True, (255, 255, 192), None)
             res_text_rect = res_text.get_rect()
             res_text_rect.center = (screen.get_width() / 6, screen.get_height() * 0.902)
             show_res = True
@@ -259,7 +259,7 @@ def secante(screen: pygame.Surface):
 
     # Carregando imagens dos botões
     img_prox = pygame.image.load("images/proximo_passo.png").convert_alpha()
-    img_voltar = pygame.image.load("images/voltar.png").convert_alpha()
+    img_voltar = pygame.image.load("images/voltar__.png").convert_alpha()
     img_prox = pygame.transform.scale_by(img_prox, (1/4 * screen.get_width()) / img_prox.get_width())
     img_voltar = pygame.transform.scale_by(img_voltar, (1/4 * screen.get_width()) / img_voltar.get_width())
 
@@ -346,7 +346,7 @@ def secante(screen: pygame.Surface):
     show_res = False
     reload_plot = True
     while loop:
-        screen.fill((255, 255, 255))
+        screen.fill((192, 224, 255))
         
         if reload_plot:
             img_plot, img_plot_rect = load_plot(screen, contador)
@@ -365,7 +365,7 @@ def secante(screen: pygame.Surface):
         
         if contador == steps and not show_res:
             font = pygame.font.Font('fonts/timesnewroman.ttf', screen.get_height() // 16)
-            res_text = font.render(f'Raiz: {approx:.1f} | {steps} passos', True, (0, 0, 0), None)
+            res_text = font.render(f'Raiz: {approx:.1f} | {steps} passos', True, (255, 255, 192), None)
             res_text_rect = res_text.get_rect()
             res_text_rect.center = (screen.get_width() / 6, screen.get_height() * 0.902)
             show_res = True
