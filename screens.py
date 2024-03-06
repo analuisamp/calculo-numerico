@@ -31,13 +31,13 @@ def newton(screen: pygame.Surface):
 
     ###########################################################################
     # Parâmetros do problema
-    f = lambda x: 10000 * (np.e ** (-0.48 * x)) - 100
-    f_linha = lambda x: -4800 * (np.e ** (-0.48 * x))
-    x0 = 8
+    f = lambda x: 10000 * (np.e ** (-0.111* 0.003 * x)) - 100
+    f_linha = lambda x: -3.33 * (np.e ** (-0.000333 * x))
+    x0 = 13600
     tol = 10e-5
     max_iter = 20
-    min_x_graph=5
-    max_x_graph=20
+    min_x_graph=13500
+    max_x_graph=14000
     ###########################################################################
 
     approx = x0
@@ -116,7 +116,7 @@ def newton(screen: pygame.Surface):
         
         if contador == steps and not show_res:
             font = pygame.font.Font('fonts/timesnewroman.ttf', screen.get_height() // 16)
-            res_text = font.render(f'Raiz: {approx:.4f} | {steps} passos', True, (0, 0, 0), None)
+            res_text = font.render(f'Raiz: {approx:.1f} | {steps} passos', True, (0, 0, 0), None)
             res_text_rect = res_text.get_rect()
             res_text_rect.center = (screen.get_width() / 6, screen.get_height() * 0.902)
             show_res = True
@@ -153,15 +153,14 @@ def bissecao(screen: pygame.Surface):
     ###########################################################################
     # Parâmetros do problema
     # I = I0 * np.e ** (u*p*x)
-    f = lambda x: 10000 * (np.e ** (-0.48 * x)) - 100
-    x0 = 8
-    x1 = 12
+    f = lambda x: 10000 * (np.e ** (-0.111* 0.003 * x)) - 100
+    x0 =13750
+    x1 =14000
     tol = 10e-5
     max_iter = 20
-    min_x_graph=5
-    max_x_graph=20
+    min_x_graph=13500
+    max_x_graph=14000
     ###########################################################################
-
     conta_graficos = 0
     ###########################################################################
     nums = np.linspace(min_x_graph, max_x_graph, 200)
@@ -236,7 +235,7 @@ def bissecao(screen: pygame.Surface):
         
         if contador == conta_graficos - 1 and not show_res:
             font = pygame.font.Font('fonts/timesnewroman.ttf', screen.get_height() // 16)
-            res_text = font.render(f'Raiz: {middle_x:.4f} | {steps} passos', True, (0, 0, 0), None)
+            res_text = font.render(f'Raiz: {middle_x:.1f} | {steps} passos', True, (0, 0, 0), None)
             res_text_rect = res_text.get_rect()
             res_text_rect.center = (screen.get_width() / 6, screen.get_height() * 0.902)
             show_res = True
@@ -272,13 +271,13 @@ def secante(screen: pygame.Surface):
 
     ###########################################################################
     # Parâmetros do problema
-    f = lambda x: 10000 * (np.e ** (-0.48 * x)) - 100
-    x0 = 8
-    x1 = 12
+    f = lambda x: 10000 * (np.e ** (-0.111* 0.003 * x)) - 100
+    x0 = 13750
+    x1 = 14000
     tol = 10e-5
     max_iter = 20
-    min_x_graph=5
-    max_x_graph=20
+    min_x_graph=13500
+    max_x_graph=14000
     ###########################################################################
 
     approx = x1
@@ -366,7 +365,7 @@ def secante(screen: pygame.Surface):
         
         if contador == steps and not show_res:
             font = pygame.font.Font('fonts/timesnewroman.ttf', screen.get_height() // 16)
-            res_text = font.render(f'Raiz: {approx:.4f} | {steps} passos', True, (0, 0, 0), None)
+            res_text = font.render(f'Raiz: {approx:.1f} | {steps} passos', True, (0, 0, 0), None)
             res_text_rect = res_text.get_rect()
             res_text_rect.center = (screen.get_width() / 6, screen.get_height() * 0.902)
             show_res = True
