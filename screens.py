@@ -258,7 +258,7 @@ def secante(screen: pygame.Surface):
     quit_prog = False
 
     # Carregando imagens dos botões
-    img_prox = pygame.image.load("images/proximo_passo.png").convert_alpha()
+    img_prox = pygame.image.load("images/proximo_passo__.png").convert_alpha()
     img_voltar = pygame.image.load("images/voltar__.png").convert_alpha()
     img_prox = pygame.transform.scale_by(img_prox, (1/4 * screen.get_width()) / img_prox.get_width())
     img_voltar = pygame.transform.scale_by(img_voltar, (1/4 * screen.get_width()) / img_voltar.get_width())
