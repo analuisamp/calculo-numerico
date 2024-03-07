@@ -161,42 +161,47 @@ def bissecao(screen: pygame.Surface):
     min_x_graph=13500
     max_x_graph=14000
     ###########################################################################
+
     conta_graficos = 0
+
     ###########################################################################
-    nums = np.linspace(min_x_graph, max_x_graph, 200)
-    res = [f(x) for x in nums]
-    x_span = max_x_graph - min_x_graph
+    nums = np.linspace(min_x_graph, max_x_graph, 200) #sequencia de números para plotagem em min e max
+    res = [f(x) for x in nums] # Lista com resultados da função para cada um dos 200 números
+    x_span = max_x_graph - min_x_graph 
     y_span = abs(max(res) - min(res))
 
-    middle_x = np.inf
+    middle_x = np.inf 
     dif_x = np.inf
     reached_tol = False
-    for i in range(max_iter):
+    for i in range(max_iter): #até 20 vezes
         
         plt.clf()
         res = [f(x) for x in nums]
-        g = sns.lineplot(x=nums, y=res, label='f(x)')
-        g.axhline(0, color='r', linestyle='--');
-        sns.scatterplot(x=[x0], y=[0], c='green')
+        g = sns.lineplot(x=nums, y=res, label='f(x)') #plot do gráfico 
+        g.axhline(0, color='r', linestyle='--') #linha tracejada em 0 
+        sns.scatterplot(x=[x0], y=[0], c='green') #plot do ponto Xinf
         if np.abs(x1 - x0) > tol * 1000:
-            plt.text(x0 + x_span * 0.03, 0 - y_span * 0.05, '$X^*_{inf}$', fontsize=10)
-            plt.text(x1 + x_span * 0.03, 0 - y_span * 0.05, '$X^*_{sup}$', fontsize=10)
-        sns.scatterplot(x=[x1], y=[0], c='green')
-        plt.savefig(f'images/plot_{conta_graficos}.png')
-        conta_graficos += 1
+            plt.text(x0 + x_span * 0.03, 0 - y_span * 0.05, '$X^*_{inf}$', fontsize=10) #plot do texto do ponto Xinf
+            plt.text(x1 + x_span * 0.03, 0 - y_span * 0.05, '$X^*_{sup}$', fontsize=10) #plot do texto do ponto Xsup
+        sns.scatterplot(x=[x1], y=[0], c='green') #plot do ponto Xsup
+        plt.savefig(f'images/plot_{conta_graficos}.png') #Salvando as imagens 
+        conta_graficos += 1 #prox imagem
     ###########################################################################
 
         dif_x = middle_x
-        middle_x = (x0 + x1) / 2
+        middle_x = (x0 + x1) / 2 #método da divisão da bisseção
         dif_x -= middle_x; dif_x = np.abs(dif_x) / np.abs(middle_x)
 
         print(f'X_{i}: {middle_x:.6f} | dif: {dif_x}')
 
-        sns.scatterplot(x=[middle_x], y=[0], c='red')
+        sns.scatterplot(x=[middle_x], y=[0], c='red') #plota o ponto vermelho da bisseção a cada iteração 
         plt.text(middle_x + x_span * 0.03, -y_span * 0.05, f'$X_{{{i}}}$', fontsize=10)
-        plt.savefig(f'images/plot_{conta_graficos}.png')
+        plt.savefig(f'images/plot_{conta_graficos}.png') #salvando a imagem com o ponto vermelho
         conta_graficos += 1
 
+        #Troca dos pontos
+        #Xsup = X0
+        #X1 = middle_x
         if f(middle_x) * f(x0) < 0:
             # Esquerda
             x1 = middle_x
